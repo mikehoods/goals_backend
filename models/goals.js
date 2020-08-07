@@ -10,7 +10,8 @@ const goalSchema = new Schema({
     complete: Boolean,
     finishBy: Date,
     notes: String
-})
+}, {timestamps: true}
+)
 
 const Goal = model('Goal', goalSchema)
 

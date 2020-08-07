@@ -10,7 +10,8 @@ const Goal = require('../models/goals.js')
 
 router.post('/', async (req, res) => {
     try {
-        const newGoal = Goal.create(req.body.goal)
+        console.log(req.body)
+        const newGoal = Goal.create(req.body)
         res.status(200).json(newGoal)
     } catch(error) {
         res.status(400).json(error)
@@ -65,3 +66,5 @@ router.put('/:id', async (req, res) => {
         res.status(400).json(error)
     }
 })
+
+module.exports = router
