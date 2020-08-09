@@ -10,8 +10,7 @@ const Goal = require('../models/goals.js')
 
 router.post('/', async (req, res) => {
     try {
-        console.log(req.body)
-        const newGoal = Goal.create(req.body)
+        const newGoal = Goal.create(req.body.goal)
         res.status(200).json(newGoal)
     } catch(error) {
         res.status(400).json(error)
@@ -57,9 +56,10 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
+        console.log(req.body)
         const updatedGoal = await Goal.findByIdAndUpdate(
-            req.params,id,
-            req.body.goal
+            req.params.id,
+            req.body
         )
         res.status(200).json(updatedGoal)
     } catch(error) {
