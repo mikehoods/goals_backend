@@ -2,14 +2,12 @@ const {Schema, model} = require ('mongoose')
 
 const goalSchema = new Schema({
     name: String,
-    description: String,
     category: String,
-    difficulty: Number,
-    importance: Number,
+    difficulty: String,
+    importance: String,
     progress: Number,
     complete: Boolean,
-    finishBy: Date,
-    notes: String
+    steps: [String]
 }, {timestamps: true}
 )
 
