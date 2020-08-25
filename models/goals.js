@@ -7,7 +7,8 @@ const goalSchema = new Schema({
     importance: String,
     progress: Number,
     complete: Boolean,
-    steps: [String]
+    steps: [String],
+    username: String
 }, {timestamps: true}
 )
 
