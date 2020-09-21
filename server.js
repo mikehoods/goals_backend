@@ -17,6 +17,9 @@ const usersController = require('./controllers/users.js')
 const db = mongoose.connection
 const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017'
 
+//allow cross-origin requests
+app.use(cors())
+
 //////////DATABASE CONNECT//////////
 
 mongoose.connect(DB_URI, {
@@ -30,7 +33,6 @@ db.on('open', ()=> {
 
 //////////MIDDLEWARE//////////
 
-app.use(cors())
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
