@@ -11,7 +11,7 @@ require('dotenv').config()
 
 //////////GLOBALS//////////
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 const goalsController = require('./controllers/goals.js')
 const usersController = require('./controllers/users.js')
 const db = mongoose.connection
