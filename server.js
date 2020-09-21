@@ -18,7 +18,9 @@ const db = mongoose.connection
 const MONGODB_URI = process.env.DB_URI || 'mongodb://localhost:27017'
 
 //allow cross-origin requests
-app.use(cors())
+app.use(cors({
+    origin: 'https://react-goal-tracker.herokuapp.com/'
+}))
 
 //////////DATABASE CONNECT//////////
 
