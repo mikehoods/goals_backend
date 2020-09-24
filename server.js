@@ -18,20 +18,32 @@ const db = mongoose.connection
 const MONGODB_URI = process.env.DB_URI || 'mongodb://localhost:27017'
 
 //allow cross-origin requests
-app.use(cors({
-    origin: 'https://react-goal-tracker.herokuapp.com/'
-}))
+// app.use(cors({
+//     origin: 'https://react-goal-tracker.herokuapp.com/'
+// }))
+
+//allow cross-origin requests
+app.use(cors());
+
+//connect to mlab (Atlas) database
+mongoose.connect('mongodb+srv://PlantManATX:plants@cluster0.emvle.mongodb.net/goalsDB?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true }
+)
+.then(()=> console.log('Connected to MongoDB Atlas'))
+.catch(err => console.log('Error: ', err.message));
 
 //////////DATABASE CONNECT//////////
 
-mongoose.connect(MONGODB_URI, {
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-})
-db.on('open', ()=> {
-    console.log('Totally connected to Mongo.')
-})
+// mongoose.connect(MONGODB_URI, {
+//     useCreateIndex: true,
+//     useUnifiedTopology: true,
+//     useNewUrlParser: true
+// })
+// db.on('open', ()=> {
+//     console.log('Totally connected to Mongo.')
+// })
 
 //////////MIDDLEWARE//////////
 
