@@ -29,7 +29,8 @@ app.use(cors());
 mongoose.connect('mongodb+srv://PlantManATX:plants@cluster0.emvle.mongodb.net/goalsDB?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true }
+    useCreateIndex: true,
+    useFindAndModify: true }
 )
 .then(()=> console.log('Connected to MongoDB Atlas'))
 .catch(err => console.log('Error: ', err.message));
