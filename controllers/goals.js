@@ -10,6 +10,7 @@ const Goal = require('../models/goals.js')
 
 router.post('/', async (req, res) => {
     try {
+        console.log(req)
         const newGoal = Goal.create(req.body.goal)
         res.status(200).json(newGoal)
     } catch(error) {
