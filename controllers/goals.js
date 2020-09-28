@@ -10,7 +10,8 @@ const Goal = require('../models/goals.js')
 
 router.post('/', async (req, res) => {
     try {
-        console.log(req)
+        console.log(req.body)
+        console.log(req.user)
         const newGoal = Goal.create(req.body.goal)
         res.status(200).json(newGoal)
     } catch(error) {
@@ -22,10 +23,8 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const goals = Goal.find({}, (errors, goals) => {
-            res.status(200).json(goals)
-        })
-        return goals
+        const goals = await Goal.find({})
+        res.status(200).json(goals)
     } catch(error) {
         res.status(400).json(error)
     }
